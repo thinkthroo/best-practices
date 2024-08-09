@@ -16,5 +16,8 @@
     "@types/node": "^22.1.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
   }
 }
