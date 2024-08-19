@@ -1,19 +1,24 @@
 import { Command } from 'commander';
 import { create } from './commands/create'; // Adjust the import path if necessary
+import { logger } from './logger';
 
-const program = new Command();
+const program1 = new Command();
+const program2 = new Command();
 
-program.option('--first').option('-s, --separator <char>');
+program1.option('--first').option('-s, --separator <char>');
+program1.parse();
 
-program.name("write-json-to-file").description("Add components and dependencies to your project");
-program.addCommand(create);
-
-program.parse();
-
-const options = program.opts();
+const options = program1.opts();
 const limit = options.first ? 1 : undefined;
 
-console.log(program.args[0].split(options.separator, limit));
+logger.info('Application started successfully');
+console.log(program1.args[0].split(options.separator, limit));
+
+program2.name("write-json-to-file").description("Add components and dependencies to your project");
+program2.addCommand(create);
+
+program2.parse();
+
 
 // Run with npm:
 // npm run build
